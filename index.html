@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You Matter.</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #ffc3a0);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 650px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    animation: fadeIn 2s ease;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    color: #ff4d6d;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #ff758c;
+    margin-bottom: 25px;
+}
+
+p {
+    font-size: 18px;
+    color: #444;
+    line-height: 1.7;
+}
+
+.highlight {
+    color: #ff0178;
+    font-weight: bold;
+}
+
+.buttons {
+    margin-top: 30px;
+    position: relative;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background: #ff4d6d;
+    color: white;
+}
+
+#yesBtn:hover {
+    background: #bdc01c;
+    transform: scale(1.1);
+}
+
+#noBtn {
+    background: #ccc;
+    position: absolute;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.heart {
+    position: absolute;
+    color: #ff4d6d;
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) scale(1); opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Swastii! ✨</h1>
+    <h2>Happy Valentine’s Day!💗 </h2>
+
+    <p>
+        Well... I dont know how to express my feelings because thats too much i guess... 
+        You are the most weird, different, and unique person i have ever met. I am proud and hella lucky! 
+     <br><br>
+     We already expressed ourselves alot but.. thats never enough to express how much i love you. 
+       <br><br>
+
+        I just want you to know… <span class="highlight">You matter.</span> 
+        Alot.. to me<br><br>
+
+        I know we wont be celebrating today because of exams but... i just wanted you to feel special today.. 
+        I know its your first Valentine’s and with me ofcourse!!
+        <br><br>
+
+        Happy Valentine’s Day, Princeesss!!✨✨
+    </p>
+
+    <h2>Will you be my Valentine? 😚</h2>
+
+    <div class="buttons">
+        <button id="yesBtn" onclick="sayYes()">Yes!!</button>
+        <button id="noBtn" onmouseover="moveButton()">No 😒</button>
+    </div>
+</div>
+
+<script>
+function sayYes() {
+    alert("I know u def clicked no as far ik you, but you cant resist me? ik");
+}
+
+function moveButton() {
+    const button = document.getElementById("noBtn");
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "✨";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
